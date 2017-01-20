@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Tennis</title>
+
+<style type="text/css">
+	#myContainer {
+				width:400px;
+				height:400px;
+				position:relative;
+				background-image: url('tenniscourt2.gif');
+				background-repeat:no-repeat;
+				background-size: contain;
+	}
+
+
+	#animate {
+				width:100px;
+				height:100px;
+				position:absolute;
+				background-image: url('tennisball.png');
+				background-size: contain;
+				background-repeat:no-repeat;
+	}
+
+	#racquet {	padding-left:20px;
+	}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1>My First JavaScript Animation</h1>
+
+<br>
+<br>
+<br>
+<br>
+
+<div id="myContainer">
+
+<div id="racquet1">
+	<img src="tennisracquet4.png" width= "100" height="200">
+</div>
+
+<div id="animate"></div>	
+</div>
+
+<div id="racquet">
+	<img src="tennisracquet5.png" width= "550" height="250">
+</div>
+
+<p>
+<button onclick="Move()">Click Me</button>	
+</p>
+
+
+<script type="text/javascript">
+var pos=0;
+function Move () {
+	var elem = document.getElementById("animate");
+	
+	var id = setInterval(frame, 5);
+	function frame() {
+		if (pos == 400) {
+			MoveBack() ;
+			 clearInterval(id);
+		} else {
+			pos++;
+			elem.style.top = pos + 'px';
+			elem.style.left = pos + 'px';
+		}
+	}
+}
+	function MoveBack() {
+	var elem = document.getElementById("animate");
+	
+	var id = setInterval(frame, 5);
+	function frame() {
+		if (pos == 0) {
+			Move();
+			
+			// clearInterval(id);
+		} else {
+			pos--;
+			elem.style.top = pos + 'px';
+			elem.style.left = pos + 'px';
+			console.log(pos);
+		}
+	}
+	}
+
+
+</script>
+</body>
+</html>
